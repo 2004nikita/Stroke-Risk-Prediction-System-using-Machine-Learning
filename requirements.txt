@@ -6,6 +6,4 @@ imbalanced-learn
 joblib
 matplotlib
 gunicorn
-CORS
-load
-
+flask-cors
