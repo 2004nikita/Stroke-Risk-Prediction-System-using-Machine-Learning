@@ -1,0 +1,265 @@
+.risk-visualization {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.risk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f1f3f4;
+}
+
+.risk-header h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.risk-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.risk-icon {
+  font-size: 1.2rem;
+}
+
+.risk-chart {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.risk-circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--color) 0deg,
+    var(--color) calc(var(--progress) * 3.6deg),
+    #e2e8f0 calc(var(--progress) * 3.6deg),
+    #e2e8f0 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: circleGrow 1s ease-out;
+}
+
+@keyframes circleGrow {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.risk-circle::before {
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
+
+.risk-progress {
+  position: relative;
+  z-index: 1;
+}
+
+.risk-percentage {
+  text-align: center;
+}
+
+.percentage-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color);
+  line-height: 1;
+}
+
+.percentage-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.risk-factors {
+  margin: 30px 0;
+}
+
+.risk-factors h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 20px;
+}
+
+.factors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.factor-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.factor-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.factor-name {
+  font-weight: 500;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+.factor-value {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 0.9rem;
+}
+
+.factor-bar {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.factor-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1s ease-out;
+  position: relative;
+}
+
+.factor-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.risk-description {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.risk-description p {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.risk-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tip-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+.tip-icon {
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .risk-visualization {
+    padding: 20px;
+  }
+  
+  .risk-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .risk-circle {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .risk-circle::before {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .percentage-number {
+    font-size: 2rem;
+  }
+  
+  .risk-tips {
+    gap: 8px;
+  }
+  
+  .tip-item {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .risk-visualization {
+    padding: 15px;
+  }
+  
+  .risk-circle {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .risk-circle::before {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .percentage-number {
+    font-size: 1.8rem;
+  }
+}
+
+
