@@ -78,7 +78,11 @@ function App() {
     setError(null);
 
     try {
-      const response = await axios.post('http://localhost:5000/predict', formData);
+      const API_URL = process.env.REACT_APP_API_URL;
+const response = await axios.post(`${API_URL}/predict`, formData);
+
+
+      // const response = await axios.post('http://localhost:5000/predict', formData);
       setPrediction(response.data.stroke);
       setShowResult(true);
     } catch (error) {
